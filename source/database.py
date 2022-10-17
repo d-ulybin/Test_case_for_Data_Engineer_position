@@ -9,5 +9,5 @@ Base = declarative_base()
 
 SQLALCHEMY_DATABASE_URL = "postgresql://postgres:1@localhost/postgres"
 
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
+engine = create_engine(SQLALCHEMY_DATABASE_URL, pool_size=100, max_overflow=200)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
